@@ -5,20 +5,20 @@ import chat from '../../images/svgs/chat.svg';
 export const cardObjOne = {
     icon: write,
     head: 'Expresa tus ideas',
-    subhead: 'Todas las ideas, incluso las sagradas, deben adaptarse a nuevas realidades.',
-    footer: '- Salman Rushdie'
+    subhead: 'Publica fotos, textos, poemas… ¡Hay prácticamente de todo!.',
+    footer: ''
 };
 
 export const cardObjTwo = {
     icon: creative,
     head: 'Creatividad al límite',
-    subhead: 'El objeto no es hacer arte, es estar en ese maravilloso estado que hace que el arte sea inevitable',
-    footer: '- Robert Henri'
+    subhead: 'No hay nadie como tú... y tu blog no debería ser menos',
+    footer: ''
 };
 
 export const cardObjThree = {
     icon: chat,
-    head: 'Comparte tu contenido',
-    subhead: 'Por encima de todo, tienes que crear algo de lo que estés orgulloso',
-    footer: '- Anónimo'
+    head: 'Explora y descubre',
+    subhead: 'Aquí dentro hay todo un universo de creatividad.',
+    footer: ''
 };

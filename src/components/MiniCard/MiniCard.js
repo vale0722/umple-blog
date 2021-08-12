@@ -2,7 +2,6 @@ import React from 'react'
 import { CardSection, CardInfo, CardIcon, CardHead, Footer } from './MiniCard.elements'
 
 const MiniCard = ({ icon, head, subhead, footer }) => {
-    console.log(icon);
     return (
         <>
             <CardSection>
@@ -10,7 +9,7 @@ const MiniCard = ({ icon, head, subhead, footer }) => {
                     <CardIcon src={icon}></CardIcon>
                     <CardHead>{head}</CardHead>
                     <Footer>{subhead}</Footer>
-                    <Footer end>{footer}</Footer>
+                    <Footer end="true">{footer}</Footer>
                 </CardInfo>
             </CardSection>
         </>

@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
     --color-background: #000000;
     --color-primary-dark: #00ADC3;
     --color-primary-text: #fff;
+    --color-primary-text-dark: #212121;
     --padding-container: 0 100px;
     --padding-container-sm: 0 30px;
   } 
@@ -26,8 +27,11 @@ export const Container = styled.div`
   max-width: 1300px;
   margin-right: auto;
   margin-left: auto;
+  background-image: url( ${({ image }) => image ?? ''});
+  background-repeat: no-repeat;
   padding: var(--padding-container);
   @media screen and (max-width: 991px) {
+    background-position: bottom;
     padding: var(--padding-container-sm);
   }
 `;
@@ -53,5 +57,22 @@ export const Button = styled.button`
     width: 100%;
   }
 `;
+
+
+export const Title = styled.h1`
+text-align: center;
+ margin: 24px 0px;
+ font-size: 48px;
+ line-height: 3rem;
+ color: var(--color-primary-text-dark);
+`
+
+export const Subtitle = styled.p`
+ text-align: center;
+ margin: 24px 0px;
+ font-size:18px;
+ line-height: 24px;
+ color: var(--color-primary-text-dark);
+`
 
 export default GlobalStyle;

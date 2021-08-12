@@ -55,5 +55,5 @@ export const Footer = styled.p`
   font-size: 14px;
   width: 100%;
   margin-bottom: 24px;
-  text-align: ${({ end }) => (end ? 'end' : 'center')};
+  text-align: ${({ end }) => (end ? 'end' : 'center')}
 `;
