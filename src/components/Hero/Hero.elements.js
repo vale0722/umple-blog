@@ -3,7 +3,7 @@ import { Container } from '../../globalStyles'
 
 export const HeroSec = styled(Container)`
     color: #fff;
-    height: 500px;
+    height: 20%;
     min-width: 100%;
     position: relative;
     --padding-container: 0;

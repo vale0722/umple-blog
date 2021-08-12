@@ -4,6 +4,7 @@ export const AboutUsImg = styled.img`
 vertical-align: top;
 position: relative;
 border-radius: 50%;
+ box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.15);
 max-width: 60%;
 @media screen and (max-width: 960px) {
  width: 65%;
@@ -23,6 +24,7 @@ export const CardSection = styled.div`
  border-radius: 4px;
  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.15);
  width: 280px;
+ max-width: 310px;
  &:nth-child(2) {
      margin: 24px;
  }

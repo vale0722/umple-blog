@@ -17,3 +17,15 @@ export const SubHeroContainer = styled(Container)`
     padding: 0px;
    }
 `
+
+export const SubHeroWrape = styled.svg`
+    min-width: 100%;
+    max-width: 100%;
+    height: 150px;
+    overflow: hidden;
+    background: var(--color-primary);
+`
+
+export const SubHeroWrapeClip = styled.path`
+    fill: #fff;
+`
