@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button } from '../../globalStyles'
-import hero from '../../images/svgs/hero.svg'
+import { Button } from '../../../../globalStyles'
+import hero from '../../../../images/svgs/hero.svg'
 import { HeroSec, Heading, Subtitle, HeroContainer, HeroWrapeClip, HeroImg, HeroWrape } from './Hero.elements'
 
 const Hero = () => {
@@ -8,6 +8,7 @@ const Hero = () => {
         <>
             <HeroSec>
                 <HeroContainer>
+                    <HeroImg src={hero}></HeroImg>
                     <div>
                         <Heading> Un mundo hecho para ti!</Heading>
                         <Subtitle>
@@ -15,7 +16,6 @@ const Hero = () => {
                         </Subtitle>
                         <Button big>Registrate</Button>
                     </div>
-                    <HeroImg src={hero}></HeroImg>
                 </HeroContainer>
             </HeroSec>
             <HeroWrape viewBox="0 0 500 150" preserveAspectRatio="none">

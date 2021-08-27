@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Container } from '../../globalStyles'
+import { Container } from '../../../../globalStyles'
 
 export const AboutUsSection = styled(Container)`
     --padding-container: 0;
@@ -10,7 +10,7 @@ export const AboutUsSection = styled(Container)`
     position: relative;
 `
 export const AboutUsContent = styled.div`
-    position: relative;
+   position: relative;
    display: grid;
    text-align: center;
    padding: 0;

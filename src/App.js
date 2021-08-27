@@ -1,19 +1,16 @@
 import React from "react";
 import { Navbar } from "./components";
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import GlobalStyle from './globalStyles'
-import Home from "./pages/HomePage/Home";
-import AboutUs from "./pages/HomePage/AboutUs";
+import GlobalStyle from './globalStyles';
+import Routes from './routes/Routes';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
   return (
     <Router>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet" />
       <GlobalStyle />
       <Navbar />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/about-us" exact component={AboutUs} />
-      </Switch>
+      <Routes />
     </Router>
   );
 };

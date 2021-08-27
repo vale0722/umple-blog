@@ -56,6 +56,7 @@ export const CardTitle = styled.div`
 export const CardText = styled.div`
   font-weight: 400;
   margin: 0;
+  line-height: 25px;
   text-transform: uppercase;
   color: #888;
   letter-spacing: 1px;

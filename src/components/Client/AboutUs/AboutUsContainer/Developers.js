@@ -1,6 +1,6 @@
-import valeria from '../../images/creators/valeria.png'
-import marcelo from '../../images/creators/marcelo.png'
-import alejandro from '../../images/creators/alejandro.png'
+import valeria from '../../../../images/creators/valeria.png'
+import marcelo from '../../../../images/creators/marcelo.png'
+import alejandro from '../../../../images/creators/alejandro.png'
 
 export const developers = [
     {

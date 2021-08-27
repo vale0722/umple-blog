@@ -1,22 +1,27 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
   :root {
     --color-primary: #00BCD4;
     --color-background: #000000;
     --color-primary-dark: #00ADC3;
     --color-primary-text: #fff;
-    --color-primary-text-dark: #212121;
+    --color-primary-text-dark: #363a4f;
     --padding-container: 0 100px;
     --padding-container-sm: 0 30px;
   } 
+
+  #root {
+   height: 100%;
+   min-height: 100vh;
+    background: url(${({ background }) => (background ?? '')});
+  }
 
   * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', serif;
   font-size: 16px;
   }
 `;
@@ -26,7 +31,8 @@ export const Container = styled.div`
   width: 100%;
   max-width: 1300px;
   margin-right: auto;
-  margin-left: auto;
+  margin-left: auto; 
+  height: ${({ big }) => (big ? '100%' : 'auto')};
   background-image: url( ${({ image }) => image ?? ''});
   background-repeat: no-repeat;
   padding: var(--padding-container);
@@ -73,6 +79,20 @@ export const Subtitle = styled.p`
  font-size:18px;
  line-height: 24px;
  color: var(--color-primary-text-dark);
+`
+export const Card = styled.div`
+  background: #fff;
+  height: 20%;
+  margin: 20px;
+  padding: 1rem;
+  box-shadow: -1px 0px 14px 0px #4e4e4e26;
+  color: var(--color-primary-text-dark);
+  text-decoration: none;
+  border-radius: 4px;
+  width: ${({ width }) => (width ?? 'auto')};
+  @media screen and (max-width: 960px) {
+    width: 100%;
+  }
 `
 
 export default GlobalStyle;

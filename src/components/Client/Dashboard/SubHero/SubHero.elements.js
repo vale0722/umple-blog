@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Container } from '../../globalStyles'
+import { Container } from '../../../../globalStyles'
 
 export const SubHeroContainer = styled(Container)`
    display: grid;
@@ -23,9 +23,9 @@ export const SubHeroWrape = styled.svg`
     max-width: 100%;
     height: 150px;
     overflow: hidden;
-    background: var(--color-primary);
+    display: flex;
 `
 
 export const SubHeroWrapeClip = styled.path`
-    fill: #fff;
+    fill: #EBFFFF;
 `

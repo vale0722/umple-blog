@@ -1,5 +1,5 @@
 import React from 'react'
-import { Title, Subtitle, Container, FooterImg } from '../../globalStyles'
+import { Title, Subtitle, Container } from '../../globalStyles'
 import { AboutUsContainer } from '../../components'
 import city from '../../images/svgs/city.svg'
 
