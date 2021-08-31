@@ -39,6 +39,7 @@ export const Container = styled.div`
   margin-right: auto;
   margin-left: auto;
   height: ${({big}) => (big ? '100%' : 'auto')};
+  background-color: ${({color}) => (color ?? 'transparent')};
   background-image: url(${({image}) => image ?? ''});
   background-repeat: no-repeat;
   padding: var(--padding-container);

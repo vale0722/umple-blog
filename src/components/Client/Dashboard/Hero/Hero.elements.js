@@ -7,8 +7,11 @@ export const HeroSec = styled(Container)`
   position: relative;
   margin: 0;
   flex-grow: 1;
+  min-height: 100px;
   background-size: contain;
   background-position: center bottom;
+  --padding-container: 0;
+  --padding-container-sm: 0;
 `
 
 export const HeroContainer = styled.div`
