@@ -1,4 +1,5 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, {createGlobalStyle} from 'styled-components';
+import {Link} from "react-router-dom";
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -9,20 +10,25 @@ const GlobalStyle = createGlobalStyle`
     --color-primary-text-dark: #363a4f;
     --padding-container: 0 100px;
     --padding-container-sm: 0 30px;
-  } 
+  }
 
   #root {
-   height: 100%;
-   min-height: 100vh;
-    background: url(${({ background }) => (background ?? '')});
+    height: 100%;
+    min-height: 100vh;
+    background: url(${({background}) => (background ?? '')});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
   }
 
   * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter', serif;
-  font-size: 16px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', serif;
+    font-size: 16px;
   }
 `;
 
@@ -31,9 +37,9 @@ export const Container = styled.div`
   width: 100%;
   max-width: 1300px;
   margin-right: auto;
-  margin-left: auto; 
-  height: ${({ big }) => (big ? '100%' : 'auto')};
-  background-image: url( ${({ image }) => image ?? ''});
+  margin-left: auto;
+  height: ${({big}) => (big ? '100%' : 'auto')};
+  background-image: url(${({image}) => image ?? ''});
   background-repeat: no-repeat;
   padding: var(--padding-container);
   @media screen and (max-width: 991px) {
@@ -42,23 +48,20 @@ export const Container = styled.div`
   }
 `;
 
-export const Button = styled.button`
+export const Button = styled(Link)`
   border-radius: 4px;
-  background: ${({ primary }) => (primary ? '#00BCD4' : '#00BCD4')};
   white-space: nowrap;
-  padding: ${({ big }) => (big ? '12px 64px' : '10px 20px')};
-  color: #fff;
+  padding: ${({big}) => (big ? '12px 64px' : '10px 20px')};
   font-size: 16px;
   outline: none;
   border: none;
-  height: 100%;
   cursor: pointer;
+
   &:hover {
     transition: all 0.3s ease-out;
-    background: #fff;
-    transform:scale(1.02);
-    background-color: ${({ primary }) => (primary ? '#00adc3' : '#00ADC3')};
+    transform: scale(1.02);
   }
+
   @media screen and (max-width: 960px) {
     width: 100%;
   }
@@ -66,19 +69,19 @@ export const Button = styled.button`
 
 
 export const Title = styled.h1`
-text-align: center;
- margin: 24px 0px;
- font-size: 48px;
- line-height: 3rem;
- color: var(--color-primary-text-dark);
+  text-align: center;
+  margin: 24px 0;
+  font-size: 48px;
+  line-height: 3rem;
+  color: var(--color-primary-text-dark);
 `
 
 export const Subtitle = styled.p`
- text-align: center;
- margin: 24px 0px;
- font-size:18px;
- line-height: 24px;
- color: var(--color-primary-text-dark);
+  text-align: center;
+  margin: 24px 0px;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--color-primary-text-dark);
 `
 export const Card = styled.div`
   background: #fff;
@@ -89,7 +92,9 @@ export const Card = styled.div`
   color: var(--color-primary-text-dark);
   text-decoration: none;
   border-radius: 4px;
-  width: ${({ width }) => (width ?? 'auto')};
+  display: flex;
+  flex-direction: column;
+  width: ${({width}) => (width ?? 'auto')};
   @media screen and (max-width: 960px) {
     width: 100%;
   }

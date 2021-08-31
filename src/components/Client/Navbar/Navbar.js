@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { FaBars, FaTimes } from 'react-icons/fa'
-import { IconContext } from 'react-icons/lib'
-import { Button } from '../../../globalStyles'
+import React, {useState} from 'react'
+import {FaBars, FaTimes} from 'react-icons/fa'
+import {IconContext} from 'react-icons/lib'
+import {Button} from '../../../globalStyles'
 import logo from '../../../images/logo.png'
 import {
     Nav,
@@ -12,32 +12,22 @@ import {
     NavMenu,
     NavItem,
     NavLinks,
-    NavItemBtn,
-    NavBtnLink
+    NavItemBtn
 } from './Navbar.elements'
 
 function Navbar() {
     const [click, setClick] = useState(false)
-    const [button, setButton] = useState(true)
     const handleClick = () => setClick(!click)
-
-    const showButton = () => setButton(window.innerWidth > 960);
-
-    useEffect(() => {
-        showButton()
-    }, [])
-
-    window.addEventListener('resize', showButton)
     return (
         <>
-            <IconContext.Provider value={{ color: '#fff' }}>
+            <IconContext.Provider value={{color: '#fff'}}>
                 <Nav>
                     <NavbarContainer>
                         <NavLogo to="/">
                             <NavIcon src={logo} alt="Logo"></NavIcon>
                         </NavLogo>
                         <MobileIcon onClick={handleClick}>
-                            {click ? <FaTimes /> : <FaBars />}
+                            {click ? <FaTimes className="h-full"/> : <FaBars className="h-full"/>}
                         </MobileIcon>
                         <NavMenu onClick={handleClick} click={click}>
                             <NavItem>
@@ -47,17 +37,7 @@ function Navbar() {
                                 <NavLinks to="/about-us">Sobre nosotros</NavLinks>
                             </NavItem>
                             <NavItemBtn>
-                                {button ? (
-                                    <NavBtnLink to="/login">
-                                        <Button primary>Iniciar sesión</Button>
-                                    </NavBtnLink>
-                                ) : (
-                                    <NavBtnLink to="/login">
-                                        <Button primary>
-                                            Iniciar sesión
-                                        </Button>
-                                    </NavBtnLink>
-                                )}
+                                <Button to="/login" className="bg-up-100">Iniciar sesión</Button>
                             </NavItemBtn>
                         </NavMenu>
                     </NavbarContainer>

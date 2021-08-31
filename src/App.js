@@ -3,6 +3,7 @@ import { Navbar } from "./components";
 import GlobalStyle from './globalStyles';
 import Routes from './routes/Routes';
 import { BrowserRouter as Router } from 'react-router-dom';
+import './styles/index.css';
 
 function App() {
   return (

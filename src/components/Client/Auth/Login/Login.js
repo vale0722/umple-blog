@@ -1,6 +1,5 @@
 import React from 'react'
-import { LoginSesion, Footer } from './Login.elements'
-import login from '../../../../images/svgs/login.svg'
+import { LoginSesion } from './Login.elements'
 import { Card, Title } from '../../../../globalStyles'
 
 const Login = () => {
