@@ -1,6 +1,5 @@
 import React from 'react'
 import background from "../../images/svgs/background.svg";
-import logo from "../../images/svgs/logo.svg";
 import {HeroContainer, HeroSec, Subtitle} from "../../components/Client/Dashboard/Hero/Hero.elements";
 import {Button} from "../../globalStyles";
 
