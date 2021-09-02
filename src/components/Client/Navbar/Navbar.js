@@ -1,49 +1,43 @@
 import React, {useState} from 'react'
-import {FaBars, FaTimes} from 'react-icons/fa'
-import {IconContext} from 'react-icons/lib'
-import {Button} from '../../../globalStyles'
 import logo from '../../../images/logo.png'
+import close from '../../../images/svgs/close.svg'
+import menu from '../../../images/svgs/menu.svg'
+
 import {
     Nav,
-    NavbarContainer,
     NavLogo,
-    NavIcon,
-    MobileIcon,
     NavMenu,
     NavItem,
     NavLinks,
-    NavItemBtn
 } from './Navbar.elements'
 
 function Navbar() {
     const [click, setClick] = useState(false)
     const handleClick = () => setClick(!click)
     return (
-        <>
-            <IconContext.Provider value={{color: '#fff'}}>
-                <Nav>
-                    <NavbarContainer>
-                        <NavLogo to="/">
-                            <NavIcon src={logo} alt="Logo"></NavIcon>
-                        </NavLogo>
-                        <MobileIcon onClick={handleClick}>
-                            {click ? <FaTimes className="h-full"/> : <FaBars className="h-full"/>}
-                        </MobileIcon>
-                        <NavMenu onClick={handleClick} click={click}>
-                            <NavItem>
-                                <NavLinks to="/">Inicio</NavLinks>
+        <header>
+            <Nav>
+                <NavLogo logo={click ? close : logo} click={click} menu={menu} onClick={handleClick}/>
+            </Nav>
+            <div className={'navigation h-full' + (click ? ' open-nav' : '')}>
+                <div className="container h-full">
+                    <NavMenu className="p-4" click={click}>
+                        <ul className="tabs active">
+                            <NavItem onClick={handleClick}>
+                                <NavLinks to="/" >Inicio</NavLinks>
                             </NavItem>
-                            <NavItem>
+                            <NavItem onClick={handleClick}>
                                 <NavLinks to="/about-us">Sobre nosotros</NavLinks>
                             </NavItem>
-                            <NavItemBtn>
-                                <Button to="/login" className="bg-up-100">Iniciar sesión</Button>
-                            </NavItemBtn>
-                        </NavMenu>
-                    </NavbarContainer>
-                </Nav>
-            </ IconContext.Provider>
-        </>
+                            <NavItem onClick={handleClick}>
+                                <NavLinks to="/login">Iniciar sesión</NavLinks>
+                            </NavItem>
+                        </ul>
+                    </NavMenu>
+                </div>
+            </div>
+            <div className="menu-bg" onClick={handleClick}/>
+        </header>
     );
 }
 

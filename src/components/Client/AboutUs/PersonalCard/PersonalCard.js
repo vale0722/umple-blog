@@ -14,7 +14,7 @@ const PersonalCard = ({image, name, description, github}) => {
                 <CardContainer className="text-center">
                     <h1 className="text-lg font-bold">{name}</h1>
                     <h2>{description}</h2>
-                    <a className="text-center w-full mt-6" href={github}>
+                    <a className="text-center w-full mt-6" target="_blank" href={github}>
                         <FaGithub></FaGithub>
                     </a>
                 </CardContainer>

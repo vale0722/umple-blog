@@ -5,7 +5,7 @@ import {Button} from "../../globalStyles";
 
 const Home = () => {
     return (
-        <div className="flex flex-grow md:flex-row flex-col">
+        <div className="flex flex-grow md:flex-row flex-col mt-20 md:mt-0">
             <div className="min-h-full">
                 <div className="h-full md:grid md:grid-cols-2">
                     <div className="px-4 bg-up-50 h-full">
