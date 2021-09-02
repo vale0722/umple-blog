@@ -24,7 +24,7 @@ export const Nav = styled.div`
 
 export const NavLogo = styled.div`
   display: block;
-  margin: ${({click}) => click ? '47vh 30%' : '47vh 10%'};
+  margin: 47vh 30%;
   cursor: pointer;
   height: 100%;
   background: url(${({logo}) => logo ?? ''}) no-repeat;
@@ -34,8 +34,7 @@ export const NavLogo = styled.div`
   transition: all .3s ease-in-out;
 
   &:hover, &:focus {
-    margin: 47vh 30%;
-    background-image: url(${({menu}) => menu ?? ''});
+    background-image: url(${({click, menu, logo}) => (click ? logo : menu)});
   }
 
   @media (max-width: 770px) {

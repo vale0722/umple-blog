@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import logo from '../../../images/logo.png'
+import React, { useState } from 'react'
+import logo from '../../../images/svgs/logo.svg'
 import close from '../../../images/svgs/close.svg'
 import menu from '../../../images/svgs/menu.svg'
 
@@ -17,7 +17,7 @@ function Navbar() {
     return (
         <header>
             <Nav>
-                <NavLogo logo={click ? close : logo} click={click} menu={menu} onClick={handleClick}/>
+                <NavLogo logo={click ? close : logo} click={click} menu={menu} onClick={handleClick} />
             </Nav>
             <div className={'navigation h-full' + (click ? ' open-nav' : '')}>
                 <div className="container h-full">
@@ -36,7 +36,7 @@ function Navbar() {
                     </NavMenu>
                 </div>
             </div>
-            <div className="menu-bg" onClick={handleClick}/>
+            <div className="menu-bg" onClick={handleClick} />
         </header>
     );
 }

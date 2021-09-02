@@ -1,5 +1,6 @@
 import React from 'react'
 import background from "../../images/svgs/background.svg";
+import logo from "../../images/svgs/logo.svg";
 import {HeroContainer, HeroSec, Subtitle} from "../../components/Client/Dashboard/Hero/Hero.elements";
 import {Button} from "../../globalStyles";
 
@@ -24,9 +25,11 @@ const Home = () => {
                     Un mundo hecho para ti!
                 </h1>
                 <Subtitle>Comparte tus ideas y encuentra gente como tú</Subtitle>
-                <div className="grid gap-4 grid-cols-1 md:px-16">
-                    <Button className="bg-up-100" to="/login">Inicia Sesión</Button>ó
-                    <Button className="bg-up-50" to="#">Registrate</Button>
+                <div className="flex justify-center">
+                    <div className="grid gap-4 grid-cols-1 md:px-16 w-96">
+                        <Button className="bg-up-100" to="/login">Inicia Sesión</Button>ó
+                        <Button className="bg-up-50" to="#">Registrate</Button>
+                    </div>
                 </div>
             </HeroContainer>
         </div>

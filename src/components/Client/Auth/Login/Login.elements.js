@@ -11,6 +11,7 @@ export const LoginSesion = styled(Container)`
     align-items: center;
 `
 
-export const Footer = styled.img`
-   
+export const ImageContainer = styled.img`
+    height: 20%;
+    width: 20%;
 `
