@@ -4,10 +4,10 @@ import {Link} from 'react-router-dom';
 export const Nav = styled.div`
   width: 80px;
   height: 100vh;
-  background: #fff;
+  background: #130b03;
   position: fixed;
   left: 0;
-  border-right: 1px solid #f0f0f0;
+  border-right: 1px solid #130b03;
   z-index: 9999;
 
   @media (max-width: 770px) {
@@ -16,8 +16,8 @@ export const Nav = styled.div`
     height: 80px;
     position: fixed;
     left: 0;
-    border-right: 0 solid #f0f0f0;
-    border-bottom: 0 solid #f0f0f0;
+    border-right: 0 solid #130b03;
+    border-bottom: 0 solid #130b03;
     z-index: 999999;
   }
 `;
@@ -51,7 +51,7 @@ export const NavMenu = styled.div`
   -webkit-animation: shelf .5s forwards linear alternate;
   animation: shelf .5s forwards linear alternate;
   box-sizing: content-box;
-  background: #fff;
+  background: #130b03;
   width: 45vw;
   height: 100%;
   position: relative;
