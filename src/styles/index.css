@@ -185,7 +185,7 @@ ul.tabs li > a:after {
     display: block;
     position: relative;
     height: 2px;
-    width: 0%;
+    width: 0;
     background: #39ccc7;
     z-index: 1;
 }
@@ -278,4 +278,12 @@ a {
 a, ul.tabs li {
     -webkit-transition: .3s all ease-in-out, 0s z-index ease-in-out, 0s border ease-in-out;
     transition: .3s all ease-in-out, 0s z-index ease-in-out, 0s border ease-in-out;
+}
+
+header {
+    background:url('https://images.pexels.com/photos/57690/pexels-photo-57690.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+}
+
+.z-1 {
+    z-index: -1;
 }

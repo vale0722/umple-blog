@@ -57,6 +57,7 @@ export const Button = styled(Link)`
   outline: none;
   border: none;
   cursor: pointer;
+  color: black;
 
   &:hover {
     transition: all 0.3s ease-out;
@@ -79,10 +80,10 @@ export const Title = styled.h1`
 
 export const Subtitle = styled.p`
   text-align: center;
-  margin: 24px 0px;
+  margin: 24px 0;
   font-size: 18px;
   line-height: 24px;
-  color: var(--color-primary-text-dark);
+  color: white;
 `
 export const Card = styled.div`
   background: #fff;

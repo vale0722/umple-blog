@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import logo from '../../../images/svgs/logo.svg'
 import close from '../../../images/svgs/close.svg'
 import menu from '../../../images/svgs/menu.svg'
@@ -11,32 +11,28 @@ import {
     NavLinks,
 } from './Navbar.elements'
 
-function Navbar() {
+function Navbar({active, items}) {
     const [click, setClick] = useState(false)
     const handleClick = () => setClick(!click)
+    const navItems = items.map((item, i) => (
+        <NavItem className={item.route === active ? 'current' : ''} key={i} onClick={handleClick}>
+            <NavLinks to={item.route}>{item.name}</NavLinks>
+        </NavItem>))
     return (
         <header>
             <Nav>
-                <NavLogo logo={click ? close : logo} click={click} menu={menu} onClick={handleClick} />
+                <NavLogo logo={click ? close : logo} click={click} menu={menu} onClick={handleClick}/>
             </Nav>
             <div className={'navigation h-full' + (click ? ' open-nav' : '')}>
                 <div className="container h-full">
                     <NavMenu className="p-4" click={click}>
                         <ul className="tabs active">
-                            <NavItem onClick={handleClick}>
-                                <NavLinks to="/" >Inicio</NavLinks>
-                            </NavItem>
-                            <NavItem onClick={handleClick}>
-                                <NavLinks to="/about-us">Sobre nosotros</NavLinks>
-                            </NavItem>
-                            <NavItem onClick={handleClick}>
-                                <NavLinks to="/login">Iniciar sesión</NavLinks>
-                            </NavItem>
+                            {navItems}
                         </ul>
                     </NavMenu>
                 </div>
             </div>
-            <div className="menu-bg" onClick={handleClick} />
+            <div className="menu-bg" onClick={handleClick}/>
         </header>
     );
 }
