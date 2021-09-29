@@ -12,7 +12,7 @@ export const LoginSesion = styled(Container)`
 `;
 
 export const ImageContainer = styled.img`
-  align-items:center
+  align-items:center;
   margin-top: 10px;
   height: 190px;
   width: 180px;
@@ -31,5 +31,4 @@ export const ImageContainer2 = styled.img`
   height: 400px;
   width: 872px;
   margin-left: 280px;
-  position: absolute;
 `;

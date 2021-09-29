@@ -1,50 +1,45 @@
 import React from "react";
-import { LoginSesion, ImageContainer, ImageContainer2 } from "./Login.elements";
-import { Title } from "../../../../globalStyles";
+import {LoginSesion, ImageContainer, ImageContainer2} from "./Login.elements";
+import {Button, Container, Title} from "../../../../globalStyles";
 import account from "../../../../images/svgs/account.svg";
 import sigin from "../../../../images/svgs/signin.svg";
 
 const Login = () => {
-  return (
-    <div className="flex-row">
-      <div className="bg-opacity-50 bg-black h-full flex items-center justify-center w-full"></div>
-      <ImageContainer2 src={sigin}></ImageContainer2>
+    return (
+            <div className="h-screen font-sans bg-cover">
+                <div className="container mx-auto h-full flex flex-1 justify-center items-center">
+                    <div className="w-full max-w-lg">
+                        <div className="leading-loose">
+                            <form className="max-w-sm m-4 p-10 bg-black bg-opacity-40 rounded shadow-xl">
+                                <p className="text-white font-medium text-center text-lg font-bold">Iniciar sesión</p>
+                                <div className="mt-4">
+                                    <label className="block text-sm text-white" htmlFor="email">Correo Electrónico</label>
+                                    <input
+                                        className="w-full px-5 py-1 text-gray-700 rounded focus:outline-none bg-white"
+                                        type="email" id="email" placeholder="Digita tu correo electrónico" aria-label="email"
+                                        required></input>
+                                </div>
+                                <div className="mt-4">
+                                    <label className="block  text-sm text-white">Contraseña</label>
+                                    <input
+                                        className="w-full px-5 py-1 text-gray-700 rounded focus:outline-none bg-white"
+                                        type="password" id="password" placeholder="Digita su contraseña"
+                                        arial-label="password" required></input>
+                                </div>
 
-      <div className="mt-28 w-80 h-120 border-solid rounded-sm border-color:#00BCD4">
-        <ImageContainer src={account}></ImageContainer>
-        <div className="m-3.5">
-          <h1 className="w-44 text-2xl mx-8">Iniciar Sesion</h1>
-        </div>
-        <input
-          type="text"
-          name="comment"
-          id="comment"
-          placeholder="Correo Electronico"
-          className="w-min text-sm py-4 px-3 rounded-xl focus:shadow-md hover:shadow-md focus:outline-none m-2 lind"
-        />
-        <input
-          type="text"
-          name="comment"
-          id="comment"
-          placeholder="Contraseña"
-          className="w-min text-sm py-4 px-3 rounded-xl focus:shadow-md hover:shadow-md focus:outline-none m-2"
-        />
-        <div class="w-full min-h-screen flex justify-center items-center">
-          <button
-            data-modal-toggle="example2"
-            data-modal-action="open"
-            class="bg-indigo-600 font-semibold text-white p-2 w-32 rounded-full hover:bg-purple-700 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300 m-2 mr-24"
-          >
-            Iniciar sesion
-          </button>
-        </div>
-      </div>
-    </div>
-  );
+                                <div className="mt-4 items-center gap-5 flex justify-between">
+                                    <Button className="bg-gray-700 text-white text-center w-full font-light tracking-wider hover:bg-gray-800 rounded" type="submit">Entrar</Button>
+                                    <Button className="bg-gray-400 text-white text-center w-full font-light tracking-wider hover:bg-gray-500 rounded">Registrate</Button>
+                                </div>
+                                <a className="inline-block right-0 align-baseline font-bold text-sm text-500 text-white hover:text-gray-400 text-center w-full mt-3"
+                                   href="#">¿Olvidaste tu contraseña?</a>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    );
 };
 
 export default Login;
-
-/*
-
-    */
