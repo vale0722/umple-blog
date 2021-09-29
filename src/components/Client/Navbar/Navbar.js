@@ -23,7 +23,7 @@ function Navbar({active, items}) {
             <Nav>
                 <NavLogo logo={click ? close : logo} click={click} menu={menu} onClick={handleClick}/>
             </Nav>
-            <div className={'navigation h-full' + (click ? ' open-nav' : '')}>
+            <div className={'navigation h-full overflow-none' + (click ? ' flex open-nav' : ' hidden')}>
                 <div className="container h-full">
                     <NavMenu className="p-4" click={click}>
                         <ul className="tabs active">

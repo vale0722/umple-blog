@@ -1,40 +1,50 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {Navbar} from "../../../components";
 import {authRoutes} from "../../../components/Client/Navbar/NavItems";
+import {postService} from "../../../services";
+import Post from "../../../components/Client/Auth/Post/Post";
 
 const AuthHome = (props) => {
+    const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    const fetchApi = async () => {
+        const response = await postService.all
+        setPosts(response.data.posts)
+        setLoading(false)
+    }
+
+    useEffect(() => {
+        fetchApi()
+    }, []);
+
+
+    let postCards = posts.map((post, i) =>
+        (<Post post={post} key={i}></Post>)
+    );
+
     return (
-        <>
+        <div className="w-full overflow-scroll">
             <Navbar active={props.match.path} items={authRoutes}/>
-            <header id="up" className="bg-center bg-fixed bg-no-repeat bg-center bg-cover h-screen relative">
-                <div className="h-screen bg-opacity-50 bg-black flex items-center justify-center">
-                    <div className="mx-2 text-center">
-                        <h1 className="text-gray-100 font-extrabold text-4xl xs:text-5xl md:text-6xl">
-                            <span className="text-white">Right</span> Place To
-                        </h1>
-                        <h2 className="text-gray-200 font-extrabold text-3xl xs:text-4xl md:text-5xl leading-tight">
-                            Get a <span className="text-white">Better</span> and <span
-                            className="text-white">Professionals</span> Design
-                        </h2>
-                        <div className="inline-flex">
-                            <button
-                                className="p-2 my-5 mx-2 bg-indigo-700 hover:bg-indigo-800 font-bold text-white rounded border-2 border-transparent hover:border-indigo-800 shadow-md transition duration-500 md:text-xl">Hire
-                                US!
-                            </button>
-                            <a href="#about">
-                                <button
-                                    className="p-2 my-5 mx-2 bg-transparent border-2 bg-indigo-200 bg-opacity-75 hover:bg-opacity-100 border-indigo-700 rounded hover:border-indigo-800 font-bold text-indigo-800 shadow-md transition duration-500 md:text-lg">Learn
-                                    More
-                                </button>
-                            </a>
+            <div className="mx-auto flex flex-col justify-center items-center relative bg-gray-100 w-full h-full min-h-screen p-8 py-20">
+                <div className={'w-full md:w-3/6 md:px-8' + (loading ? ' block' : ' hidden')}>
+                    <div className="relative bg-white rounded-lg shadow-xl p-4 mt-4">
+                        <div className="grid grid-cols-2 grid-flow-col w-full animate-pulse">
+                            <div className="rounded-full bg-gray-300 h-20 w-20"/>
+                            <div className="flex-1 w-full space-y-4 py-1">
+                                <div className="h-4 bg-gray-300 rounded w-3/4"></div>
+                                <div className="space-y-2">
+                                    <div className="h-4 bg-gray-300 rounded"></div>
+                                    <div className="h-4 bg-gray-300 rounded w-5/6"></div>
+                                </div>
+                            </div>
                         </div>
+                        <div className="animate-pulse bg-gray-300 h-96 min-h-full w-full rounded-2xl mt-3"/>
                     </div>
                 </div>
-            </header>
-            <div className="container mx-auto box-content bg-up-50 flex-grow p-4">
-                <div></div>
+                {postCards}
             </div>
-        </>
+        </div>
     )
 }
 
