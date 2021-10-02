@@ -8,7 +8,7 @@ export const all = (url) => service.get(url)
 export const show = (url) => (id) => service.get(`${url}/${id}`)
     .then(response => response)
 
-export const store = (url) => (body) => service.post(url, body).then(response => response);
+export const store = (url) => (body, headers = {}) => service.post(url, body, headers).then(response => response);
 
 export const update = (url) => (id, body) => service.patch(`${url}/${id}`, body)
     .then(response => response);

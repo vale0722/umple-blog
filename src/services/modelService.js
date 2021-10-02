@@ -3,10 +3,10 @@ import {all, show, store, destroy, update} from "./service";
 export const assembler = (url) => {
     const model = {};
     model.all = all(url);
-    model.one = show(url);
-    model.create = store(url);
+    model.show = show(url);
+    model.store = store(url);
     model.update = update(url);
-    model.delete = destroy(url);
+    model.destroy = destroy(url);
     return model;
 };
 

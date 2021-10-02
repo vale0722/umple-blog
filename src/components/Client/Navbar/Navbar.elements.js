@@ -55,7 +55,7 @@ export const NavMenu = styled.div`
   width: 45vw;
   height: 100%;
   position: relative;
-  overflow: scroll;
+  overflow: hidden;
   display: ${({click}) => click ? 'block' : 'none'};
   @media (max-width: 770px) {
     width: 100%;
