@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Modal} from "../../../index";
 import CreatePostForm from "./CreatePostForm";
 
-const CreatePost = ({fetchPost}) => {
+const CreatePost = () => {
     let [isOpen, setIsOpen] = useState(false)
 
     function closeModal() {
@@ -58,9 +58,7 @@ const CreatePost = ({fetchPost}) => {
                     </li>
                 </ul>
             </div>
-            <Modal isOpen={isOpen} closeModal={closeModal}>
-                <CreatePostForm fetchPost={fetchPost} closeModal={closeModal} />
-            </Modal>
+            <Modal isOpen={isOpen} closeModal={closeModal}><CreatePostForm closeModal={closeModal} /></Modal>
         </>
     )
 }

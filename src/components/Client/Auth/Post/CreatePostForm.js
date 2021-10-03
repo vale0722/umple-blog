@@ -1,12 +1,15 @@
 import React, {useRef, useState} from 'react';
-import {postService} from "../../../../services";
 import FormData from 'form-data';
+import store from "../../../../store";
+import {newPost, refreshPosts} from "../../../../services/Slices/PostSlice";
+import {useDispatch} from "react-redux";
 
-const CreatePostForm = ({closeModal, fetchPost}) => {
-    let [img, setImg] = useState();
-    let [originalImg, setOriginalImg] = useState();
+const CreatePostForm = ({closeModal}) => {
+    let [img, setImg] = useState(null);
+    let [originalImg, setOriginalImg] = useState(null);
     let [content, setContent] = useState('');
     let imgValue = useRef();
+    const dispatch = useDispatch()
 
     let handleChangeImage = (e) => {
         if (e.target.files.length) {
@@ -22,12 +25,11 @@ const CreatePostForm = ({closeModal, fetchPost}) => {
 
     const publish = async () => {
         let formData = new FormData();
-        formData.append('photo', originalImg);
+        if (originalImg) formData.append('photo', originalImg);
         formData.set('content', content);
-        let response = await postService.store(formData, {headers: {'content-type': 'multipart/form-data'}});
+        await dispatch(newPost(formData, {headers: {'content-type': 'multipart/form-data'}}));
+        await dispatch(refreshPosts);
         closeModal();
-        console.log(response)
-        fetchPost();
     }
 
     return (
