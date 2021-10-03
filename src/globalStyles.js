@@ -17,8 +17,6 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     background: url(${({background}) => (background ?? '')});
     background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     display: flex;
     flex-direction: column;
   }

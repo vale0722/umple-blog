@@ -3,7 +3,7 @@ import AboutUs from "../pages/Client/AboutUs";
 import Login from "../pages/Client/Login";
 import AuthHome from "../pages/Client/Auth/Home";
 
-export default [
+const paths = [
     {
         path: '/',
         component: Home,
@@ -24,4 +24,6 @@ export default [
         component: AuthHome,
         props: {},
     },
-]
+];
+
+export default paths;

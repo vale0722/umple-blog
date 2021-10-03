@@ -1,7 +1,6 @@
 import React, {useRef, useState} from 'react';
 import FormData from 'form-data';
-import store from "../../../../store";
-import {newPost, refreshPosts} from "../../../../services/Slices/PostSlice";
+import {newPost} from "../../../../services/Slices/PostSlice";
 import {useDispatch} from "react-redux";
 
 const CreatePostForm = ({closeModal}) => {
@@ -28,7 +27,6 @@ const CreatePostForm = ({closeModal}) => {
         if (originalImg) formData.append('photo', originalImg);
         formData.set('content', content);
         await dispatch(newPost(formData, {headers: {'content-type': 'multipart/form-data'}}));
-        await dispatch(refreshPosts);
         closeModal();
     }
 
@@ -46,8 +44,7 @@ const CreatePostForm = ({closeModal}) => {
                         <span className="relative inline-flex rounded-md shadow-sm my-4">
                          <img src={img} className="relative" alt="img"/>
                           <button className="flex absolute h-4 w-4 top-0 right-0 -mt-1 -mr-1" onClick={deleteImage}>
-                            <span
-                                className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75"></span>
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75" />
                             <span
                                 className="relative inline-flex rounded-full h-4 w-4 leading-3 bg-red-600 justify-center text-white px-1 align-middle self-center text-sm">
                                <em className="fas fa-times fa-xs flex items-center"/>

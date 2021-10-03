@@ -29,14 +29,14 @@ const Login = () => {
                                             className="w-full px-5 py-1 text-gray-700 rounded focus:outline-none bg-white"
                                             type="email" id="email" placeholder="Digita tu correo electrónico"
                                             aria-label="email"
-                                            required></input>
+                                            required />
                                     </div>
                                     <div className="mt-4">
                                         <label className="block  text-sm text-white">Contraseña</label>
                                         <input
                                             className="w-full px-5 py-1 text-gray-700 rounded focus:outline-none bg-white"
                                             type="password" id="password" placeholder="Digita su contraseña"
-                                            arial-label="password" required></input>
+                                            required />
                                     </div>
 
                                     <div className="mt-4 items-center gap-5 flex justify-between">
@@ -48,7 +48,7 @@ const Login = () => {
                                             to="/">Registrate</Button>
                                     </div>
                                     <a className="inline-block right-0 align-baseline font-bold text-sm text-500 text-white hover:text-gray-400 text-center w-full mt-3"
-                                       href="#">¿Olvidaste tu contraseña?</a>
+                                       href="/">¿Olvidaste tu contraseña?</a>
                                 </form>
                             </div>
                         </Transition.Child>
