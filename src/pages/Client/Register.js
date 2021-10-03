@@ -1,5 +1,5 @@
 import React from "react";
-import { LoginContainer, Navbar, RegisterContainer } from "../../components";
+import { Navbar, RegisterContainer } from "../../components";
 import GlobalStyle from "../../globalStyles";
 import { clientRoutes } from "../../components/Client/Navbar/NavItems";
 
