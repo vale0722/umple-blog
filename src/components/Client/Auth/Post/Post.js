@@ -5,12 +5,13 @@ import {useDispatch} from "react-redux";
 import {deletePost, interaction} from "../../../../services/Slices/PostSlice";
 import {Modal} from "../../../index";
 import Comments from "./Comments";
+import {followUser} from "../../../../services/Slices/NotFollowedSlice";
 
 const Post = ({post}) => {
     let dispatch = useDispatch();
     let postData = post.photo_url
         ? (<img alt="img" src={process.env.REACT_APP_UMPLE_API + '/storage/' + post.photo_url}
-                className="rounded-lg w-full h-full object-contain max-h-96" />)
+                className="rounded-lg w-full h-full object-contain max-h-96"/>)
         : null
 
     let [isOpen, setIsOpen] = useState(false)
@@ -59,14 +60,20 @@ const Post = ({post}) => {
                     }>
                         <div className="px-1 py-1 ">
                             <Menu.Item>
-                                {({active}) => (
-                                    <button
+                                {({active}) => post.user_id === 1 ?
+                                    (<button
                                         onClick={() => dispatch(deletePost(post.id))}
                                         className={`${active ? 'bg-gray-300' : ''} transform duration-500 group flex rounded-md items-center w-full px-2 py-2 text-sm`}>
                                         <em className="fas fa-trash fa-xs flex items-center mr-3"/>
                                         Eliminar
-                                    </button>
-                                )}
+                                    </button>)
+                                    : (<button
+                                        onClick={() => dispatch(followUser(post.user_id))}
+                                        className={`${active ? 'bg-gray-300' : ''} transform duration-500 group flex rounded-md items-center w-full px-2 py-2 text-sm`}>
+                                        <em className="fas fa-minus-circle fa-xs flex items-center mr-3"/>
+                                        Dejar de seguir
+                                    </button>)
+                                }
                             </Menu.Item>
                         </div>
                     </Dropdown>
