@@ -2,6 +2,7 @@ import Home from "../pages/Client/Home";
 import AboutUs from "../pages/Client/AboutUs";
 import Login from "../pages/Client/Login";
 import AuthHome from "../pages/Client/Auth/Home";
+import Register from "../pages/Client/Register";
 
 const paths = [
     {
@@ -22,6 +23,11 @@ const paths = [
     {
         path: '/auth/home',
         component: AuthHome,
+        props: {},
+    },
+    {
+        path: "/register",
+        component: Register,
         props: {},
     },
 ];
