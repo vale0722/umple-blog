@@ -10,7 +10,7 @@ import {followUser} from "../../../../services/Slices/NotFollowedSlice";
 const Post = ({post}) => {
     let dispatch = useDispatch();
     let postData = post.photo_url
-        ? (<img alt="img" src={process.env.REACT_APP_UMPLE_API + '/storage/' + post.photo_url}
+        ? (<img alt="img" src={process.env.REACT_APP_UMPLE_STATICS + '/' + post.photo_url}
                 className="rounded-lg w-full h-full object-contain max-h-96"/>)
         : null
 
