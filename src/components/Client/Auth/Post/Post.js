@@ -7,10 +7,12 @@ import {Modal} from "../../../index";
 import Comments from "./Comments";
 import {followUser} from "../../../../services/reducers/not_followed.reducer";
 import {useAlert} from "react-alert";
+import {getUser} from "../../../../helpers";
 
 const Post = ({post}) => {
     let dispatch = useDispatch();
     const alert = useAlert();
+    const user = getUser();
     let postData = post.photo_url
         ? (<img alt="img" src={process.env.REACT_APP_UMPLE_STATICS + '/' + post.photo_url}
                 className="rounded-lg w-full h-full object-contain max-h-96"/>)
@@ -65,7 +67,7 @@ const Post = ({post}) => {
                     }>
                         <div className="px-1 py-1 ">
                             <Menu.Item>
-                                {({active}) => post.user_id === 1 ?
+                                {({active}) => post.user_id === user.user.id ?
                                     (<button
                                         onClick={deleteAPost}
                                         className={`${active ? 'bg-gray-300' : ''} transform duration-500 group flex rounded-md items-center w-full px-2 py-2 text-sm`}>
