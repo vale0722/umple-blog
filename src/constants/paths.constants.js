@@ -4,7 +4,15 @@ import Login from "../pages/Client/Login";
 import AuthHome from "../pages/Client/Auth/Home";
 import Register from "../pages/Client/Register";
 
-const paths = [
+export const auth = [
+    {
+        path: '/auth/home',
+        component: AuthHome,
+        props: {},
+    },
+]
+
+export const guest = [
     {
         path: '/',
         component: Home,
@@ -21,15 +29,8 @@ const paths = [
         props: {},
     },
     {
-        path: '/auth/home',
-        component: AuthHome,
-        props: {},
-    },
-    {
         path: "/register",
         component: Register,
         props: {},
     },
 ];
-
-export default paths;

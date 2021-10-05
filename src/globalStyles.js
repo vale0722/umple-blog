@@ -30,23 +30,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const Container = styled.div`
-  z-index: 1;
-  width: 100%;
-  max-width: 1300px;
-  margin-right: auto;
-  margin-left: auto;
-  height: ${({big}) => (big ? '100%' : 'auto')};
-  background-color: ${({color}) => (color ?? 'transparent')};
-  background-image: url(${({image}) => image ?? ''});
-  background-repeat: no-repeat;
-  padding: var(--padding-container);
-  @media screen and (max-width: 991px) {
-    background-position: bottom;
-    padding: var(--padding-container-sm);
-  }
-`;
-
 export const Button = styled(Link)`
   border-radius: 4px;
   white-space: nowrap;
@@ -67,37 +50,12 @@ export const Button = styled(Link)`
   }
 `;
 
-
-export const Title = styled.h1`
-  text-align: center;
-  margin: 24px 0;
-  font-size: 48px;
-  line-height: 3rem;
-  color: var(--color-primary-text-dark);
-`
-
 export const Subtitle = styled.p`
   text-align: center;
   margin: 24px 0;
   font-size: 18px;
   line-height: 24px;
   color: white;
-`
-export const Card = styled.div`
-  background: #fff;
-  height: 20%;
-  margin: 20px;
-  padding: 1rem;
-  box-shadow: -1px 0px 14px 0px #4e4e4e26;
-  color: var(--color-primary-text-dark);
-  text-decoration: none;
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  width: ${({width}) => (width ?? 'auto')};
-  @media screen and (max-width: 960px) {
-    width: 100%;
-  }
 `
 
 export default GlobalStyle;

@@ -4,8 +4,8 @@ import {authRoutes} from "../../../components/Client/Navbar/NavItems";
 import Post from "../../../components/Client/Auth/Post/Post";
 import GlobalStyle from "../../../globalStyles";
 import {useSelector} from 'react-redux'
-import {refreshPosts} from '../../../services/Slices/PostSlice'
-import store from "../../../store";
+import {refreshPosts} from '../../../services/reducers/post.reducer'
+import {getUser, store} from "../../../helpers";
 import Followed from "../../../components/Client/Auth/Followers/Followed";
 import Followers from "../../../components/Client/Auth/Followers/Followers";
 import NotFollowed from "../../../components/Client/Auth/Followers/NotFollowed";
@@ -13,6 +13,7 @@ import NotFollowed from "../../../components/Client/Auth/Followers/NotFollowed";
 const AuthHome = (props) => {
     const posts = useSelector(state => state.posts);
     const fetchPost = async () => store.dispatch(refreshPosts)
+    const user = getUser();
 
     function topFunction() {
         document.body.scrollTop = 0
@@ -24,7 +25,9 @@ const AuthHome = (props) => {
     };
 
     function scrollFunction() {
-        document.getElementById('up').style.display = document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 ? 'flex' : 'none';
+        if (document.getElementById('up')) {
+            document.getElementById('up').style.display = document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 ? 'flex' : 'none';
+        }
     }
 
     useEffect(() => {
@@ -65,6 +68,16 @@ const AuthHome = (props) => {
                         {postCards}
                     </div>
                     <div className="relative lg:top-4 max-h-screen post lg:sticky lg:max-w-xs w-full mt-28 md:mt-4">
+                        <div className="bg-white rounded-lg shadow-xl p-4 max-h-96 mb-4 post lg:max-w-xs w-full flex gap-2 flex-col justify-center items-center text-center align-middle">
+                            <img src={process.env.REACT_APP_UMPLE_STATICS + '/' + user.user.photo_uri}
+                                 alt={user.user.name} className="w-32 h-32 rounded-full object-contain"/>
+                            <h1 className="font-bold text-center w-full text-xl">
+                                {user.user.name}
+                            </h1>
+                            <h2 className="text-center w-full text-sm">
+                                {user.user.email}
+                            </h2>
+                        </div>
                         <NotFollowed/>
                         <Followers/>
                         <Followed/>

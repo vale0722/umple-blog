@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
 import {useSelector} from "react-redux";
-import store from "../../../../store";
-import {refreshNotFollowed} from "../../../../services/Slices/NotFollowedSlice";
+import {store} from "../../../../helpers";
+import {refreshNotFollowed} from "../../../../services/reducers/not_followed.reducer";
 import UserItems from "./UserItems";
 
 const NotFollowed = () => {
-    const noFollowed = useSelector(state => state.noFollowed);
+    const noFollowed = useSelector(state => state.not_followed);
 
     async function fetchNotFollowed() {
         store.dispatch(refreshNotFollowed)

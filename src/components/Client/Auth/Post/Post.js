@@ -2,10 +2,10 @@ import React, {useState} from 'react'
 import Dropdown from "../../../Dropdown";
 import {Menu} from '@headlessui/react'
 import {useDispatch} from "react-redux";
-import {deletePost, interaction} from "../../../../services/Slices/PostSlice";
+import {deletePost, interaction} from "../../../../services/reducers/post.reducer";
 import {Modal} from "../../../index";
 import Comments from "./Comments";
-import {followUser} from "../../../../services/Slices/NotFollowedSlice";
+import {followUser} from "../../../../services/reducers/not_followed.reducer";
 import {useAlert} from "react-alert";
 
 const Post = ({post}) => {
@@ -44,16 +44,11 @@ const Post = ({post}) => {
                 <div className="flex justify-between items-center py-2">
                     <div className="relative mt-1 flex">
                         <div className="mr-2">
-                            <img src={post.user_profile} alt={post.user_name}
-                                 className="w-10 h-10 rounded-full object-contain"></img>
+                            <img src={process.env.REACT_APP_UMPLE_STATICS + '/' + post.user_profile} alt={post.user_name} className="w-10 h-10 rounded-full object-contain" />
                         </div>
                         <div className="ml-3 flex justify-start flex-col items-start">
-                            <p className="text-gray-900 text-sm">
-                                {post.user_name}
-                            </p>
-                            <p className="text-gray-600 text-xs">
-                                {post.user_email}
-                            </p>
+                            <p className="text-gray-900 text-sm">{post.user_name}</p>
+                            <p className="text-gray-600 text-xs">{post.user_email}</p>
                         </div>
                     </div>
                     <Dropdown bottom={
@@ -89,9 +84,7 @@ const Post = ({post}) => {
                     </Dropdown>
                 </div>
             </div>
-            <div className="relative w-full h-full">
-                {postData}
-            </div>
+            <div className="relative w-full h-full">{postData}</div>
 
             <h1 className="my-4 text-2xl text-center">{post.content}</h1>
 

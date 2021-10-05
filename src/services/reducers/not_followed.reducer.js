@@ -1,6 +1,6 @@
 import service from "../service";
-import {refreshPosts} from "./PostSlice";
-import {refreshFollowed} from "./FollowedSlice";
+import {refreshPosts} from "./post.reducer";
+import {refreshFollowed} from "./followed.reducer";
 
 const initialState = []
 
@@ -21,7 +21,7 @@ export function followUser(user) {
     }
 }
 
-export default function NotFollowedReducer(state = initialState, action) {
+export function not_followed(state = initialState, action) {
     switch (action.type) {
         case 'users/notFollowedLoaded': {
             return action.payload

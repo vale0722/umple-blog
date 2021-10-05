@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Modal} from "../../../index";
 import {useSelector} from "react-redux";
-import store from "../../../../store";
-import {refreshFollowers} from "../../../../services/Slices/FollowersSlice";
+import {store} from "../../../../helpers";
+import {refreshFollowers} from "../../../../services/reducers/followers.reducer";
 import UserItems from "./UserItems";
 
 const Followers = () => {

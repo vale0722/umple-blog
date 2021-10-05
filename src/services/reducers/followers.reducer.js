@@ -9,7 +9,7 @@ export async function refreshFollowers(dispatch) {
     dispatch({type: 'users/followersLoaded', payload: response.data.followers})
 }
 
-export default function FollowersReducer(state = initialState, action) {
+export function followers(state = initialState, action) {
     switch (action.type) {
         case 'users/followersLoaded': {
             return action.payload

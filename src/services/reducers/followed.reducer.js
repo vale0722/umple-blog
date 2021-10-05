@@ -9,7 +9,7 @@ export async function refreshFollowed(dispatch) {
     dispatch({type: 'users/followedLoaded', payload: response.data.followed})
 }
 
-export default function FollowedReducer(state = initialState, action) {
+export function followed(state = initialState, action) {
     switch (action.type) {
         case 'users/followedLoaded': {
             return action.payload

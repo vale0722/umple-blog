@@ -17,5 +17,5 @@ export const authRoutes = [
     {
         route: '/auth/home',
         name: 'Inicio'
-    },
+    }
 ];

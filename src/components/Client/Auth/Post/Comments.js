@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {comment} from "../../../../services/Slices/PostSlice";
+import {comment} from "../../../../services/reducers/post.reducer";
 import {useDispatch} from "react-redux";
 
 const Comments = ({post, comments}) => {
@@ -15,7 +15,7 @@ const Comments = ({post, comments}) => {
     let commentPosts = comments.map((comment, key) => (
         <div className="relative mt-1 mb-3 pt-2 flex" key={key}>
             <div className="mr-2">
-                <img src={comment.user_profile} alt={comment.user_name}
+                <img src={process.env.REACT_APP_UMPLE_STATICS + '/' + comment.user_profile} alt={comment.user_name}
                      className="w-8 h-8 rounded-full object-cover"/>
             </div>
             <div className="ml-2 w-full">

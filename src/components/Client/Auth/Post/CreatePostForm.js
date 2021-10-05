@@ -1,6 +1,6 @@
 import React, {useRef, useState} from 'react';
 import FormData from 'form-data';
-import {newPost} from "../../../../services/Slices/PostSlice";
+import {newPost} from "../../../../services/reducers/post.reducer";
 import {useDispatch} from "react-redux";
 import {useAlert} from "react-alert";
 

@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Modal} from "../../../index";
 import {useSelector} from "react-redux";
-import store from "../../../../store";
-import {refreshFollowed} from "../../../../services/Slices/FollowedSlice";
+import {store} from "../../../../helpers";
+import {refreshFollowed} from "../../../../services/reducers/followed.reducer";
 import UserItems from "./UserItems";
 
 const Followed = () => {

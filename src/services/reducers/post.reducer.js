@@ -41,7 +41,7 @@ export function comment(post, data) {
     }
 }
 
-export default function postReducer(state = initialState, action)
+export function posts(state = initialState, action)
 {
     switch (action.type) {
         case 'posts/postsLoaded': {
