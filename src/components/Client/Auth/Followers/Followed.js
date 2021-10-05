@@ -33,7 +33,7 @@ const Followed = () => {
                 <h2 className="text-center self-center w-full text-lg">Seguidos</h2>
             </div>
             <Modal isOpen={isOpen} closeModal={closeModal}>
-                <UserItems title="Seguidos" users={followed} notFound="Aún no sigues a ningún usuario... ¿Que estás esperando?" />
+                <UserItems title="Seguidos" followed="Dejar de Seguir" users={followed} notFound="Aún no sigues a ningún usuario... ¿Que estás esperando?" />
             </Modal>
         </>
     )

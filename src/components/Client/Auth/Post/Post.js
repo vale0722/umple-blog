@@ -6,9 +6,11 @@ import {deletePost, interaction} from "../../../../services/Slices/PostSlice";
 import {Modal} from "../../../index";
 import Comments from "./Comments";
 import {followUser} from "../../../../services/Slices/NotFollowedSlice";
+import {useAlert} from "react-alert";
 
 const Post = ({post}) => {
     let dispatch = useDispatch();
+    const alert = useAlert();
     let postData = post.photo_url
         ? (<img alt="img" src={process.env.REACT_APP_UMPLE_STATICS + '/' + post.photo_url}
                 className="rounded-lg w-full h-full object-contain max-h-96"/>)
@@ -22,6 +24,14 @@ const Post = ({post}) => {
 
     function openModal() {
         setIsOpen(true)
+    }
+
+    function deleteAPost() {
+        dispatch(deletePost(post.id)).then(() => {
+            alert.success('Publicación eliminada exítosamente')
+        }).catch(() => {
+            alert.error('La publicación no pudo ser eliminada')
+        })
     }
 
     let like = () => {
@@ -62,7 +72,7 @@ const Post = ({post}) => {
                             <Menu.Item>
                                 {({active}) => post.user_id === 1 ?
                                     (<button
-                                        onClick={() => dispatch(deletePost(post.id))}
+                                        onClick={deleteAPost}
                                         className={`${active ? 'bg-gray-300' : ''} transform duration-500 group flex rounded-md items-center w-full px-2 py-2 text-sm`}>
                                         <em className="fas fa-trash fa-xs flex items-center mr-3"/>
                                         Eliminar

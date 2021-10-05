@@ -1,7 +1,13 @@
 import React from 'react';
 import notFoundImg from "../../../../images/svgs/not_found.svg";
+import store from "../../../../store";
+import {followUser} from "../../../../services/Slices/NotFollowedSlice";
 
-const UserItems = ({users, title, notFound}) => {
+const UserItems = ({users, title, notFound, followed}) => {
+    async function followUserDispatch(user) {
+        store.dispatch(followUser(user))
+    }
+
     let usersCards = users.length ? users.map((user, i) =>
         (<div className="flex justify-between items-center p-2" key={i}>
             <div className="relative mt-1 flex">
@@ -18,6 +24,14 @@ const UserItems = ({users, title, notFound}) => {
                     </p>
                 </div>
             </div>
+            { followed ? (
+                <button
+                    onClick={() => followUserDispatch(user.id)}
+                    className="relative p-1 px-3 text-sm focus:outline-none hover:bg-up-100 transform duration-300 border-none bg-gray-100 rounded-full">
+                    { followed }
+                    <em className="fas fa-plus-circle ml-3"/>
+                </button>
+            ) : '' }
         </div>)
     ) : (
         <div className="flex flex-col justify-center align-middle items-center p-2 gap-2 h-full">

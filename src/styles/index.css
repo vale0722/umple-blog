@@ -286,6 +286,12 @@ a, ul.tabs li {
     width: 100%;
 }
 
+#up {
+    top: 6rem;
+    left: 100%;
+    z-index: 1;
+}
+
 header {
     background: url('https://images.pexels.com/photos/904616/pexels-photo-904616.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') no-repeat;
     background-size: cover;
