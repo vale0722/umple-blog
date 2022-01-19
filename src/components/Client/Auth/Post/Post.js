@@ -1,18 +1,20 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Dropdown from "../../../Dropdown";
 import {Menu} from '@headlessui/react'
 import {useDispatch} from "react-redux";
-import {deletePost, interaction} from "../../../../services/reducers/post.reducer";
+import {deletePost, interaction, refreshPosts} from "../../../../services/reducers/post.reducer";
 import {Modal} from "../../../index";
 import Comments from "./Comments";
 import {followUser} from "../../../../services/reducers/not_followed.reducer";
 import {useAlert} from "react-alert";
-import {getUser} from "../../../../helpers";
+import {getUser, store} from "../../../../helpers";
+import echo from "../../../../services/echos";
 
 const Post = ({post}) => {
     let dispatch = useDispatch();
     const alert = useAlert();
     const user = getUser();
+    const fetchPost = async () => store.dispatch(refreshPosts)
     let postData = post.photo_url
         ? (<img alt="img" src={process.env.REACT_APP_UMPLE_STATICS + '/' + post.photo_url}
                 className="rounded-lg w-full h-full object-contain max-h-96"/>)
@@ -27,6 +29,15 @@ const Post = ({post}) => {
     function openModal() {
         setIsOpen(true)
     }
+
+    useEffect(() => {
+        echo.private(`App.Models.Comments.${post.user_id}`).listen('.new-comment', (e) => {
+            fetchPost();
+        });
+        echo.private(`App.Models.Interactions.${post.user_id}`).listen('.new-interaction', (e) => {
+            fetchPost();
+        });
+    }, [])
 
     function deleteAPost() {
         dispatch(deletePost(post.id)).then(() => {

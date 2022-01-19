@@ -2,8 +2,11 @@ import React from "react";
 import GlobalStyle from './globalStyles';
 import Routes from './routes/Routes';
 import {BrowserRouter as Router} from 'react-router-dom';
-import {transitions, positions, Provider as AlertProvider} from 'react-alert'
+import {transitions, positions, Provider as AlertProvider, useAlert} from 'react-alert'
 import Alert from "./components/Alert";
+import echo from "./services/echos";
+import {getUser} from "./helpers";
+
 
 const options = {
     position: positions.BOTTOM_RIGHT,

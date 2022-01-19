@@ -5,15 +5,31 @@ import Post from "../../../components/Client/Auth/Post/Post";
 import GlobalStyle from "../../../globalStyles";
 import {useSelector} from 'react-redux'
 import {refreshPosts} from '../../../services/reducers/post.reducer'
+import echo from '../../../services/echos'
 import {getUser, store} from "../../../helpers";
 import Followed from "../../../components/Client/Auth/Followers/Followed";
 import Followers from "../../../components/Client/Auth/Followers/Followers";
 import NotFollowed from "../../../components/Client/Auth/Followers/NotFollowed";
+import {useAlert} from "react-alert";
+import {refreshFollowed} from "../../../services/reducers/followed.reducer";
+import {refreshNotFollowed} from "../../../services/reducers/not_followed.reducer";
+import {refreshFollowers} from "../../../services/reducers/followers.reducer";
 
 const AuthHome = (props) => {
     const posts = useSelector(state => state.posts);
     const fetchPost = async () => store.dispatch(refreshPosts)
-    const user = getUser();
+    async function fetchFollowed() {
+        store.dispatch(refreshFollowed)
+    }
+    async function fetchNotFollowed() {
+        store.dispatch(refreshNotFollowed)
+    }
+
+    async function fetchFollowers() {
+        store.dispatch(refreshFollowers)
+    }
+    const user = getUser()
+    const alert = useAlert();
 
     function topFunction() {
         document.body.scrollTop = 0
@@ -30,13 +46,34 @@ const AuthHome = (props) => {
         }
     }
 
+    function sendNotification(e) {
+        if(e.user_id !== user.user.id) {
+            alert.info(e);
+        }
+    }
+
     useEffect(() => {
         fetchPost();
+        echo.private(`App.Models.Comments.${user.user.id}`).listen('.new-comment', (e) => {
+            sendNotification(e);
+            fetchPost();
+        });
+        echo.private(`App.Models.Interactions.${user.user.id}`).listen('.new-interaction', (e) => {
+            sendNotification(e);
+            fetchPost();
+        });
+        echo.private(`App.Models.Followed.${user.user.id}`).listen('.new-followed', (e) => {
+            sendNotification(e);
+            fetchFollowed();
+            fetchFollowers();
+            fetchNotFollowed();
+
+        });
     }, [])
 
-    let postCards = posts ? posts.map((post, i) =>
-        (<Post post={post} key={i}/>)
-    ) : [];
+    let postCards = posts ? posts.map((post, i) => {
+        return post.user_name ? (<Post post={post} key={i}/>) : ''
+    }) : [];
 
     return (
         <div className="w-full">
